@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  template_import: one
+  field: one
+  rule: 
+
+two:
+  template_import: two
+  field: two
+  rule: 

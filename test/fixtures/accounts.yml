@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  iban: MyString
+  user: one
+  bank: one
+  carte_number: 
+  type: 1
+  category: one
+  address: one
+
+two:
+  name: MyString
+  iban: MyString
+  user: two
+  bank: two
+  carte_number: 
+  type: 1
+  category: two
+  address: two

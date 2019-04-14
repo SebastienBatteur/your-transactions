@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  account: 
+  contreparte: one
+  reference: MyString
+  amount: 9.99
+  currency: MyString
+  value_date: 2019-04-13 13:52:55
+  execution_date: 2019-04-13 13:52:55
+  type: 
+  communication: MyString
+  raw: 
+
+two:
+  user: two
+  account: 
+  contreparte: two
+  reference: MyString
+  amount: 9.99
+  currency: MyString
+  value_date: 2019-04-13 13:52:55
+  execution_date: 2019-04-13 13:52:55
+  type: 
+  communication: MyString
+  raw: 
