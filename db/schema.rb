@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20190413124139) do
     t.uuid "user_id"
     t.uuid "bank_id"
     t.jsonb "carte_number"
-    t.integer "type"
+    t.integer "status"
     t.uuid "category_id"
     t.uuid "address_id"
     t.datetime "created_at", null: false
@@ -85,8 +85,9 @@ ActiveRecord::Schema.define(version: 20190413124139) do
   create_table "template_imports", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.uuid "bank_id"
-    t.integer "type"
-    t.jsonb "global_rule"
+    t.string "language_code"
+    t.integer "source"
+    t.jsonb "rule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bank_id"], name: "index_template_imports_on_bank_id"
@@ -96,17 +97,22 @@ ActiveRecord::Schema.define(version: 20190413124139) do
     t.uuid "user_id"
     t.uuid "account_id"
     t.uuid "contreparte_id"
+    t.uuid "contreparte_address_id"
+    t.uuid "category_id"
+    t.string "contreparte_name"
     t.string "reference"
     t.decimal "amount", precision: 10, scale: 2
     t.string "currency"
     t.datetime "value_date"
     t.datetime "execution_date"
-    t.string "type"
+    t.integer "payment_option"
     t.string "communication"
     t.jsonb "raw"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_transactions_on_account_id"
+    t.index ["category_id"], name: "index_transactions_on_category_id"
+    t.index ["contreparte_address_id"], name: "index_transactions_on_contreparte_address_id"
     t.index ["contreparte_id"], name: "index_transactions_on_contreparte_id"
     t.index ["user_id", "reference"], name: "index_transactions_on_user_id_and_reference", unique: true
     t.index ["user_id"], name: "index_transactions_on_user_id"
@@ -140,5 +146,7 @@ ActiveRecord::Schema.define(version: 20190413124139) do
   add_foreign_key "template_imports", "banks"
   add_foreign_key "transactions", "accounts"
   add_foreign_key "transactions", "accounts", column: "contreparte_id"
+  add_foreign_key "transactions", "addresses", column: "contreparte_address_id"
+  add_foreign_key "transactions", "categories"
   add_foreign_key "transactions", "users"
 end

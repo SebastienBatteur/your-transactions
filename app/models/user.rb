@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :addresses
   has_many :transactions
+  has_many :accounts
 
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?

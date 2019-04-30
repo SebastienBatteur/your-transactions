@@ -39,7 +39,19 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rubocop'
   gem 'pg'
+  gem 'table_print', '~> 1.5', '>= 1.5.6'
 end
 group :production do
   gem 'pg'
 end
+gem 'to_regexp'
+
+# validation and more information bic-code or swift code
+gem 'iso-swift', git: 'https://github.com/rwehresmann/iso-swift.git'
+gem 'countries'
+gem 'ibandit', '~> 0.11.27'
+
+
+gem 'simple_form', '~> 4.1'
+gem 'country_select', '~> 4.0'
+# gem 'simple_form_language_input'

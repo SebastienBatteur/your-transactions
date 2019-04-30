@@ -3,5 +3,7 @@ class TemplateImport < ApplicationRecord
 
   has_many :field_imports
 
-  enum type: [:csv, :html, :api]
+  enum source: [:csv, :html, :api]
+
+  include ExtractValueModule
 end

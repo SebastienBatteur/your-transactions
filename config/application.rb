@@ -17,5 +17,8 @@ module YourTransactions
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid, foreign_key_type: :uuid
     end
+
+    # config.enable_dependency_loading = true
+    # config.autoload_paths << Rails.root.join('lib')
   end
 end
